@@ -1,0 +1,144 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2018-05-02 15:27:10
+ * @version $
+ */
+body,div,ul,ol,li,h1,h2,h3,h4,h5,h6,p {margin: 0;padding: 0;}
+img {border: 0; vertical-align: middle;}
+ol,ul {list-style: none}
+h1,h2,h3,h4,h5,h6 {font-size: 100%;font-weight: normal}
+i{font-style: normal;}
+body{overflow: hidden;}
+/* plane start */
+#plane{
+    position: relative;
+    width: 512px;
+    height: 768px;
+    margin: 50px auto;
+}
+.p-list{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+/* level start */
+.level{
+    text-align: center;
+    z-index: 1;
+}
+.level h1{
+    padding: 60px 0 150px;
+    font-size: 40px;
+    color: #fff;
+    line-height: 60px;
+}
+.level p{
+    width: 200px;
+    height: 35px;
+    margin: 30px auto;
+    background-color: #fff;
+    line-height: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.level p:hover{
+    background-color: #ffc0cb;
+    color: #fff;
+}
+/* map start */
+.map{
+    background: url("../image/bg_1.jpg");
+}
+.map .army,
+.map .biu,
+.map .enemy,
+.map .enbiu,
+.map .boom,
+.map .boom2{
+    position: absolute;
+}
+.map .army{
+    z-index: 8;
+}
+.map .biu{
+    z-index: 10;
+}
+.map .boom2{
+    z-index: 11;
+    animation: bling 2s 1;
+    animation-fill-mode: forwards;
+}
+.map .enemy{
+    z-index: 9;
+}
+.map .enbiu{
+    z-index: 8;
+}
+.map .boom{
+    z-index: 7;
+    animation: fade .8s 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fade {
+    from{ opacity: 1; }
+    to{ opacity: 0; }
+}
+@keyframes bling {
+    0%{ opacity: 1; }
+    20%{ opacity: 0; }
+    40%{opacity: 1; }
+    60%{opacity: 0;}
+    80%{opacity: 1; }
+    100%{opacity: 0;}
+}
+/* score start */
+.score{
+    display: none;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 16px;
+    color: #fff;
+}
+/* restart start */
+.restart{
+    display: none;
+}
+.restart p{
+    width: 300px;
+    height: 40px;
+    margin: 140px auto 0;
+    line-height: 40px;
+    color: #fff;
+}
+.restart p i{
+    font-size: 22px;
+    font-weight: bold;
+}
+.restart .res-01 i{
+    color: #fb0021;
+}
+.restart .res-02 i{
+    color: #ffa80c;
+}
+.restart .res-03{
+    font-family: "楷体";
+    font-size: 20px;
+    width: 100px;
+    height: 35px;
+    background: rgb(255,255,255);
+    background: rgba(255,255,255,.8);
+    color: #000;
+    font-weight: bolder;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.restart p.res-03:hover{
+    background-color: #fff;
+}
