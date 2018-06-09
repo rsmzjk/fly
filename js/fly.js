@@ -115,9 +115,18 @@
     function fire(oImg,level) {
         var time = [150,100,60,20][level];
         oPlane.biu = setInterval(function () {
-            createBiu();
+            if (oPlane.score >= 1000) {
+                createBiu(true,-1);
+                createBiu(true,0);
+                createBiu(true,1);
+            }else if (oPlane.score >= 500) {
+                createBiu(true,-1);
+                createBiu(true,1);
+            }else{
+                createBiu();
+            }
         },time);
-        function createBiu() {
+        function createBiu(bool,count) {
             //创建我军子弹
             var oBiu = new Image();
             oBiu.src = 'image/fire_1.png';
@@ -126,6 +135,9 @@
             oBiu.height = 30;
             var left = oImg.offsetLeft + oImg.width/2-oBiu.width/2,
                 top = oImg.offsetTop - oBiu.height + 5;
+            if( bool ){
+                left += oBiu.width*count;
+            }
             oBiu.style.left = left + 'px';
             oBiu.style.top = top + 'px';
             oBiuAll.appendChild(oBiu);
@@ -185,7 +197,7 @@
                                 oBiuAll.removeChild(objBiu);//移除子弹
                                 enImg.HP--;
                                 if (!enImg.HP) {
-                                    oPlane.score += enImg.index?2:20;//打掉飞机加分
+                                    oPlane.score += enImg.index?10:20;//打掉飞机加分
                                     oScore.innerHTML = '当前分数: '+oPlane.score;
                                     boom(enImg,index?0:2);//敌军爆炸
                                     oMap.removeChild(enImg);//移除敌军
